@@ -39,7 +39,7 @@ exports.deleteClassRoom = async (req,res) =>{
     try {
         const user = await userModel.findById(req.headers['user-id']);
         if (user.isPrincipal){
-            await classRoomModel.findByIdAndDelete(req.prams.id)
+            await classRoomModel.findByIdAndDelete(req.params.id)
             res.status(200).json({message:"classroomDeleted !"})
         }else{
             res.status(400).json({message:"you can't delete the classroom !"})
