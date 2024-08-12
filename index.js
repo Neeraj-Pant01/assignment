@@ -15,7 +15,7 @@ app.use('/api/v1/auth',authRoute);
 app.use('/api/v1/classroom',classRoomRoute)
 app.use('/api/v1/timetable',timeTableRoute)
 
-let PORT = 8000 || process.env.PORT;
+let PORT = 8000 ;
 
 app.listen(PORT,()=>{
     connection();
