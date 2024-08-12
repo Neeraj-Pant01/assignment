@@ -3,7 +3,7 @@ const userModel = require("../models/user.model");
 exports.Register = async (req, res, next) => {
     try {
         const admin = await userModel.findById(req.body.userId)
-        if (admin.isPrincipal) {
+        if (admin.isPrincipal || admin.status=="teacher") {
             const user = await userModel.findOne({ email: req.body.email })
             if (user) return res.status(400).json({ message: "user already exists with this email !" })
             const newUser = new userModel(req.body)

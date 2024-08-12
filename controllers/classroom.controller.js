@@ -38,6 +38,7 @@ exports.updateClassRoom = async (req, res) => {
 exports.deleteClassRoom = async (req,res) =>{
     try {
         const user = await userModel.findById(req.headers['user-id']);
+        console.log(req.headers['user-id'])
         if (user.isPrincipal){
             await classRoomModel.findByIdAndDelete(req.params.id)
             res.status(200).json({message:"classroomDeleted !"})
