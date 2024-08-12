@@ -10,7 +10,7 @@ const App = () => {
   const user = useSelector((state)=>state.user.currentUser)
   return (
     <>
-    <Navbar />
+    {!user && <Navbar />}
     <Routes>
       <Route path='/' element={user ? <Homepage /> : <Navigate to={'/login'} />} />
       <Route path='/classroom/:id' element={user ? <ClassRoom /> : <Navigate to={'/login'} /> } />
